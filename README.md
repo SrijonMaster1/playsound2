@@ -6,18 +6,13 @@ playsoundv2
 
 Installation
 ============
-Install via pip:
+Installation:
 
 ```
 $ pip install playsound
 ```
 
-Done.
-
-If you insist on the (slightly) harder way of installing, from source, you know how to do it already and don't need my help.
-
-The latest version of the source code can be found at:
-https://github.com/kethan1/playsoundv2
+The Github Repo with the source code is: https://github.com/kethan1/playsoundv2
 
 Quick Start
 ===========

@@ -1,8 +1,5 @@
-from inspect import getsource
-from os.path import abspath, dirname
 from setuptools import setup
 
-here = abspath(dirname(getsource(lambda: 0)))
 
 with open('README.md', encoding='utf-8') as long_description_file:
     long_description = long_description_file.read()
@@ -10,7 +7,7 @@ with open('README.md', encoding='utf-8') as long_description_file:
 setup(
     name='playsound2',
     version='0.1',
-    description=long_description,
+    description='\n'.join(long_description.split("\n")[2:5]),
     long_description=long_description,
     url='https://github.com/kethan1/playsound2',
     author='Kethan Vegunta',
