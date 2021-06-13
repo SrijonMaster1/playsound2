@@ -18,7 +18,7 @@ The latest version of the source code can be found at:
 https://github.com/kethan1/playsoundv2
 
 Quick Start
------------
+===========
 Once you've installed, you can really quickly verified that it works with just this:
 
 ```
@@ -42,11 +42,11 @@ On Linux, uses GStreamer. Known to work on Ubuntu 14.04 and ElementaryOS
 Loki. Support for the `block` argument is currently not implemented.
 
 Requirements
-------------
+============
 I have only tested this module on Windows 10 with Python 3.8 and Python 3.9, though it should work with other OSes and versions. 
 
 Copyright
----------
+=========
 Original software is Copyright (c) 2016 Taylor Marks <taylor@marksfam.com>.
 Modified software is Copyright (c) 2021 Kethan Vegunta <kethan@vegunta.com>. 
 
