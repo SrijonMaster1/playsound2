@@ -7,7 +7,8 @@ here = abspath(dirname(getsource(lambda: 0)))
 with open('README.md', encoding='utf-8') as long_description_file:
     long_description = long_description_file.read()
 
-setup(name='playsound2',
+setup(
+    name='playsound2',
     version='0.1',
     description=long_description,
     long_description=long_description,
@@ -29,5 +30,5 @@ setup(name='playsound2',
         'Topic :: Multimedia :: Sound/Audio :: Players :: MP3'
     ],
     keywords='sound playsound music wave wav mp3 media song play audio',
-    py_modules=['playsound']
+    py_modules=['playsound2']
 )
