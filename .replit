@@ -1,0 +1,2 @@
+run = "<run command here>"
+language = "python tests/test_sounds.py"

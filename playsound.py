@@ -23,6 +23,10 @@ def _playsoundWin(sound, block=True):
     from random import random
 
     sound = str(sound)
+    # sys.modules['__main__'] will not a have a __file__ attribute when run
+    # from an interactive python console (such as IDLE or Jupyter Notebook)
+    if hasattr(sys.modules['__main__'], "__file__"):
+        sound = os.path.join(os.path.dirname(sys.modules['__main__'].__file__), str(sound))
 
     def winCommand(*command):
         buf = c_buffer(255)
@@ -65,6 +69,10 @@ def _playsoundOSX(sound, block=True):
     from Foundation import NSURL
 
     sound = str(sound)
+    # sys.modules['__main__'] will not a have a __file__ attribute when run
+    # from an interactive python console (such as IDLE or Jupyter Notebook)
+    if hasattr(sys.modules['__main__'], "__file__"):
+        sound = os.path.join(os.path.dirname(sys.modules['__main__'].__file__), str(sound))
 
     if '://' not in sound:
         if not sound.startswith('/'):
@@ -83,12 +91,17 @@ def _playsoundOSX(sound, block=True):
 
 def _playsoundNix(sound, block=True):
     sound = str(sound)
+    # sys.modules['__main__'] will not a have a __file__ attribute when run
+    # from an interactive python console (such as IDLE or Jupyter Notebook)
+    if hasattr(sys.modules['__main__'], "__file__"):
+        sound = os.path.join(os.path.dirname(sys.modules['__main__'].__file__), str(sound))
 
-    """Play a sound using GStreamer.
+    '''
+    Play a sound using GStreamer.
 
     Inspired by this:
     https://gstreamer.freedesktop.org/documentation/tutorials/playback/playbin-usage.html
-    """
+    '''
     if not block:
         raise NotImplementedError(
             "block=False cannot be used on this platform yet")
