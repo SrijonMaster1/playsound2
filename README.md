@@ -1,4 +1,6 @@
-playsound
+This is a fork of [playsound](https://github.com/TaylorSMarks/playsound) that I will try to maintain.
+
+playsoundv2
 =========
 *Pure Python, cross platform, single function module with no dependencies for playing sounds.*
 
