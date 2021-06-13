@@ -1,4 +1,4 @@
-This is a fork of [playsound](https://github.com/TaylorSMarks/playsound) that I will try to maintain.
+This is a fork of [playsound](https://github.com/TaylorSMarks/playsound) that I will try to maintain. This is actually a fork of https://github.com/driedler/playsound, which was a fork of https://github.com/TaylorSMarks/playsound, that fixed a memory leak for Windows. 
 
 playsoundv2
 =========

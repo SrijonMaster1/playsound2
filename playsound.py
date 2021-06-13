@@ -66,6 +66,7 @@ def _playsoundOSX(sound, block=True):
         if not sound.startswith('/'):
             sound = os.getcwd() + '/' + sound
         sound = 'file://' + sound
+        sound = sound.replace(' ', '%20')
     url = NSURL.URLWithString_(sound)
     nssound = NSSound.alloc().initWithContentsOfURL_byReference_(url, True)
     if not nssound:
