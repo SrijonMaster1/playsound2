@@ -22,6 +22,8 @@ def _playsoundWin(sound, block=True):
     from ctypes import c_buffer, windll
     from random import random
 
+    sound = str(sound)
+
     def winCommand(*command):
         buf = c_buffer(255)
         command = ' '.join(command).encode(sys.getfilesystemencoding())
@@ -62,6 +64,8 @@ def _playsoundOSX(sound, block=True):
     from AppKit import NSSound
     from Foundation import NSURL
 
+    sound = str(sound)
+
     if '://' not in sound:
         if not sound.startswith('/'):
             sound = os.getcwd() + '/' + sound
@@ -78,6 +82,8 @@ def _playsoundOSX(sound, block=True):
 
 
 def _playsoundNix(sound, block=True):
+    sound = str(sound)
+
     """Play a sound using GStreamer.
 
     Inspired by this:
