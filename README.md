@@ -47,6 +47,17 @@ Requirements
 ============
 I have only tested this module on Windows 10 with Python 3.8 and Python 3.9, though it should work with other OSes and versions. 
 
+If you are getting this error on Linux:
+```
+ImportError: No module named 'gi'
+```
+Then run the below commands:
+```
+sudo apt install python3-gi
+pip3 install vext
+pip3 install vext.gi
+```
+
 Copyright
 =========
 Original software is Copyright (c) 2016 Taylor Marks <taylor@marksfam.com>.

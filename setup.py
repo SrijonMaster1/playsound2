@@ -7,7 +7,7 @@ here = abspath(dirname(getsource(lambda: 0)))
 with open('README.md', encoding='utf-8') as long_description_file:
     long_description = long_description_file.read()
 
-setup(name='playsoundv2',
+setup(name='playsound2',
     version='0.1',
     description=long_description,
     long_description=long_description,
