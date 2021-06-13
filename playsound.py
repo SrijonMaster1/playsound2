@@ -3,13 +3,15 @@
 import sys
 import os
 import time
+from typing import Union
+import pathlib
 
 
 class PlaysoundException(Exception):
     pass
 
 
-def _playsoundWin(sound, block=True):
+def _playsoundWin(sound: Union[str, pathlib.Path], block=True) -> None:
     '''
     Utilizes windll.winmm. Tested and known to work with MP3 and Wave on
     Windows 10 with Python 3.8 and 3.9. Probably works with more file formats.
@@ -53,12 +55,11 @@ def _playsoundWin(sound, block=True):
     winCommand('close', alias)
 
 
-def _playsoundOSX(sound, block=True):
+def _playsoundOSX(sound: Union[str, pathlib.Path], block=True) -> None:
     '''
-    Utilizes AppKit.NSSound. Tested and known to work with MP3 and WAVE on
-    OS X 10.11 with Python 2.7. Probably works with anything QuickTime supports.
-    Probably works on OS X 10.5 and newer. Probably works with all versions of
-    Python.
+    Utilizes AppKit.NSSound. Probably works with anything that has
+    QuickTime support. Probably works on OS X 10.5 and newer. Probably
+    works with all versions of Python.
 
     Inspired by (but not copied from) Aaron's Stack Overflow answer here:
     http://stackoverflow.com/a/34568298/901641
@@ -89,7 +90,7 @@ def _playsoundOSX(sound, block=True):
         time.sleep(nssound.duration())
 
 
-def _playsoundNix(sound, block=True):
+def _playsoundNix(sound: Union[str, pathlib.Path], block=True) -> None:
     sound = str(sound)
     # sys.modules['__main__'] will not a have a __file__ attribute when run
     # from an interactive python console (such as IDLE or Jupyter Notebook)
