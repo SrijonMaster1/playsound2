@@ -6,7 +6,6 @@ playsoundv2
 
 Installation
 ============
-[![Run on Repl.it](https://repl.it/badge/github/kethan1/playsound)](https://repl.it/github/kethan1/playsound)
 Install via pip:
 
 ```
