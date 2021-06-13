@@ -1,5 +1,5 @@
 from inspect import getsource
-from os.path import abspath, dirname, join
+from os.path import abspath, dirname
 from setuptools import setup
 
 here = abspath(dirname(getsource(lambda: 0)))
