@@ -7,8 +7,9 @@ with open('README.md', encoding='utf-8') as long_description_file:
 setup(
     name='playsound2',
     version='0.1',
-    description='\n'.join(long_description.split("\n")[4:5]),
+    description="Pure Python, cross platform, single function module with no dependencies for playing sounds.",
     long_description=long_description,
+    long_description_content_type="text/markdown",
     url='https://github.com/kethan1/playsound2',
     author='Kethan Vegunta',
     author_email='kethan@vegunta.com',
