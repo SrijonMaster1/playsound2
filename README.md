@@ -12,14 +12,14 @@ Installation:
 $ pip install playsound
 ```
 
-The Github Repo with the source code is: https://github.com/kethan1/playsoundv2
+The Github Repo with the source code is: https://github.com/kethan1/playsound2
 
 Quick Start
 ===========
 Once you've installed, you can really quickly verified that it works with just this:
 
 ```
->>> from playsound import playsound
+>>> from playsound2 import playsound
 >>> playsound('/path/to/a/sound/file/you/want/to/play.mp3')
 ```
 

@@ -3,6 +3,6 @@ import pathlib
 
 sys.path.insert(0, str(pathlib.Path(__file__).parents[1].absolute()))
 
-from playsound import playsound
+from playsound2 import playsound
 
 playsound("test.mp4")
