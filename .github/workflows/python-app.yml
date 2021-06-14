@@ -29,8 +29,7 @@ jobs:
         sudo apt-get install pkg-config libcairo2-dev gcc python3-dev libgirepository1.0-dev
         pip install gobject PyGObject
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        var="#!/usr/bin/python3.9"
-        sudo sed -i "1s/.*/$var/" /usr/bin/gnome-tweaks
+        sudo sed -i '1c\#!/usr/bin/python3.9' /usr/bin/gnome-tweaks
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
