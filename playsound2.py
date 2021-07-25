@@ -5,6 +5,7 @@ import os
 import time
 from typing import Union
 import pathlib
+import inspect
 
 
 class PlaysoundException(Exception):
@@ -24,11 +25,9 @@ def _playsoundWin(sound: Union[str, pathlib.Path], block=True) -> None:
     from ctypes import c_buffer, windll
     from random import random
 
-    sound = str(sound)
-    # sys.modules['__main__'] will not a have a __file__ attribute when run
-    # from an interactive python console (such as IDLE or Jupyter Notebook)
-    if hasattr(sys.modules['__main__'], "__file__"):
-        sound = os.path.join(os.path.dirname(sys.modules['__main__'].__file__), str(sound))
+    sound = os.path.join(
+        os.path.dirname(os.path.abspath((inspect.stack()[1])[1])), str(sound)
+    )
 
     def winCommand(*command):
         buf = c_buffer(255)
@@ -69,11 +68,9 @@ def _playsoundOSX(sound: Union[str, pathlib.Path], block=True) -> None:
     from AppKit import NSSound
     from Foundation import NSURL
 
-    sound = str(sound)
-    # sys.modules['__main__'] will not a have a __file__ attribute when run
-    # from an interactive python console (such as IDLE or Jupyter Notebook)
-    if hasattr(sys.modules['__main__'], "__file__"):
-        sound = os.path.join(os.path.dirname(sys.modules['__main__'].__file__), str(sound))
+    sound = os.path.join(
+        os.path.dirname(os.path.abspath((inspect.stack()[1])[1])), str(sound)
+    )
 
     if '://' not in sound:
         if not sound.startswith('/'):
@@ -91,11 +88,6 @@ def _playsoundOSX(sound: Union[str, pathlib.Path], block=True) -> None:
 
 
 def _playsoundNix(sound: Union[str, pathlib.Path], block=True) -> None:
-    sound = str(sound)
-    # sys.modules['__main__'] will not a have a __file__ attribute when run
-    # from an interactive python console (such as IDLE or Jupyter Notebook)
-    if hasattr(sys.modules['__main__'], "__file__"):
-        sound = os.path.join(os.path.dirname(sys.modules['__main__'].__file__), str(sound))
 
     '''
     Play a sound using GStreamer.
@@ -103,6 +95,11 @@ def _playsoundNix(sound: Union[str, pathlib.Path], block=True) -> None:
     Inspired by this:
     https://gstreamer.freedesktop.org/documentation/tutorials/playback/playbin-usage.html
     '''
+
+    sound = os.path.join(
+        os.path.dirname(os.path.abspath((inspect.stack()[1])[1])), str(sound)
+    )
+
     if not block:
         raise NotImplementedError(
             "block=False cannot be used on this platform yet")
